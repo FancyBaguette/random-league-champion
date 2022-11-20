@@ -12,8 +12,8 @@ async function render() {
     const { 
         path, keystone, slot1, slot2, slot3,
         pathImg, keystoneImg, slot1Img, slot2Img, slot3Img,
-        secondaryPath, secondarySlot1, secondarySlot2, secondarySlot3,
-        secondaryPathImg, secondarySlot1Img, secondarySlot2Img, secondarySlot3Img
+        secondaryPath, secondarySlot1, secondarySlot2,
+        secondaryPathImg, secondarySlot1Img, secondarySlot2Img,
     } = randomRunes;
 
     championDataElement.innerHTML = `
@@ -21,7 +21,10 @@ async function render() {
         <div class="champion-data-block champion-data-block--header">
 
             <img class="champion-avatar" src="${avatarURL}"/>
-            <h1>${name}</h1>
+            <div>
+                <h1>${name}</h1>
+                <em>${title}</em>
+            </div>
 
         </div>
 
@@ -67,11 +70,6 @@ async function render() {
                 <li>
                     <img class="rune-icon" src="${secondarySlot2Img}">
                     <span>${secondarySlot2}</span>
-                </li>
-
-                <li>
-                    <img class="rune-icon" src="${secondarySlot3Img}">
-                    <span>${secondarySlot3}</span>
                 </li>
             </ol>
 
