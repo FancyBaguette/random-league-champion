@@ -1,5 +1,5 @@
+const version = '12.22.1';
 let runesArray;
-const version = '12.22.1' // latest
 
 fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/runesReforged.json`)
     .then((response) => response.json())
@@ -24,16 +24,45 @@ const getRandomRunes = () => {
     const rolledKeystone = rolledPath.slots[0].runes[getRandomIndex(rolledPath.slots[0].runes)];
 
     const rolledSlotOne = rolledPath.slots[1].runes[getRandomIndex(rolledPath.slots[1].runes)];
+    console.log(rolledSlotOne)
     const rolledSlotTwo = rolledPath.slots[2].runes[getRandomIndex(rolledPath.slots[2].runes)];
     const rolledSlotThree = rolledPath.slots[3].runes[getRandomIndex(rolledPath.slots[3].runes)];
+
+
+    let secondaryRolledPath = runesArray[getRandomIndex(runesArray)];
+    const secondaryRolledSlotOne = secondaryRolledPath.slots[1].runes[getRandomIndex(secondaryRolledPath.slots[1].runes)];
+    const secondaryRolledSlotTwo = secondaryRolledPath.slots[2].runes[getRandomIndex(secondaryRolledPath.slots[2].runes)];
+    const secondaryRolledSlotThree = secondaryRolledPath.slots[3].runes[getRandomIndex(secondaryRolledPath.slots[3].runes)];
+
+    // This 'while' loop ensures we don't get eg. 'Domination' as both the main and secondary path
+    while (runesArray.indexOf(rolledPath) === runesArray.indexOf(secondaryRolledPath)) {
+        secondaryRolledPath = runesArray[getRandomIndex(runesArray)];
+    }
 
     const rolledRunes = {
         path: rolledPath.name,
         keystone: rolledKeystone.name,
-        keystoneImg: `./images/${rolledKeystone.icon}`,
         slot1: rolledSlotOne.name,
         slot2: rolledSlotTwo.name,
         slot3: rolledSlotThree.name,
+
+        pathImg: `./images/${rolledPath.icon}`,
+
+        keystoneImg: `./images/${rolledKeystone.icon}`,
+        slot1Img: `./images/${rolledSlotOne.icon}`,
+        slot2Img: `./images/${rolledSlotTwo.icon}`,
+        slot3Img: `./images/${rolledSlotThree.icon}`,
+
+        secondaryPath: secondaryRolledPath.name,
+        secondarySlot1: secondaryRolledSlotOne.name,
+        secondarySlot2: secondaryRolledSlotTwo.name,
+        secondarySlot3: secondaryRolledSlotThree.name,
+
+        secondaryPathImg: `./images/${secondaryRolledPath.icon}`,
+
+        secondarySlot1Img: `./images/${secondaryRolledSlotOne.icon}`,
+        secondarySlot2Img: `./images/${secondaryRolledSlotTwo.icon}`,
+        secondarySlot3Img: `./images/${secondaryRolledSlotThree.icon}`,
     };
     
     return rolledRunes;
