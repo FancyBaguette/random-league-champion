@@ -30,14 +30,15 @@ const getRandomRunes = () => {
 
 
     let secondaryRolledPath = runesArray[getRandomIndex(runesArray)];
-    const secondaryRolledSlotOne = secondaryRolledPath.slots[1].runes[getRandomIndex(secondaryRolledPath.slots[1].runes)];
-    const secondaryRolledSlotTwo = secondaryRolledPath.slots[2].runes[getRandomIndex(secondaryRolledPath.slots[2].runes)];
-    const secondaryRolledSlotThree = secondaryRolledPath.slots[3].runes[getRandomIndex(secondaryRolledPath.slots[3].runes)];
 
     // This 'while' loop ensures we don't get eg. 'Domination' as both the main and secondary path
     while (runesArray.indexOf(rolledPath) === runesArray.indexOf(secondaryRolledPath)) {
         secondaryRolledPath = runesArray[getRandomIndex(runesArray)];
     }
+
+    const secondaryRolledSlotOne = secondaryRolledPath.slots[1].runes[getRandomIndex(secondaryRolledPath.slots[1].runes)];
+    const secondaryRolledSlotTwo = secondaryRolledPath.slots[2].runes[getRandomIndex(secondaryRolledPath.slots[2].runes)];
+    const secondaryRolledSlotThree = secondaryRolledPath.slots[3].runes[getRandomIndex(secondaryRolledPath.slots[3].runes)];
 
     const rolledRunes = {
         path: rolledPath.name,
