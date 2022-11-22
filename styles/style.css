@@ -79,6 +79,14 @@ h2,h3 {
     font-weight: 600;
 }
 
+.fine-print {
+    position: absolute;
+    bottom: 0;
+    font-size: .65rem;
+    font-style: italic;
+    color: rgba(227, 227, 227, 0.3);
+}
+
 /* ===============
 LAYOUT
 ================== */
