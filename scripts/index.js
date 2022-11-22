@@ -1,7 +1,7 @@
 import getRandomChampion from "./randomChampion.js";
 import getRandomRunes from "./randomRunes.js";
 
-const championDataElement = document.querySelector('.champion-data');
+const championDataElement = document.querySelector('main');
 
 async function render() {
 
@@ -18,59 +18,63 @@ async function render() {
 
     championDataElement.innerHTML = `
     
-        <div class="champion-data-block champion-data-block--header">
+        <div class="data-container champion-data">
 
             <img class="champion-avatar" src="${avatarURL}"/>
-            <div>
-                <h1>${name}</h1>
-                <em>${title}</em>
+            <div style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                <h1 class="champion-name">${name}</h1>
+                <em class="champion-title">${title}</em>
             </div>
 
         </div>
 
-        <div class="champion-data-block">
-            <div class="champion-data-block--header">
-                <img class="rune-icon--path" src="${pathImg}"/>
+        <div class="data-container rune-data">
+            <div class="rune-data-header">
+                <img src="${pathImg}"/>
                 <h2 data-path="${path}">${path}</h2>
             </div>
 
             <ol class="rune-list">
-                <li>
-                    <img class="rune-icon" src="${keystoneImg   }">
-                    <span>${keystone}</span>
-                </li>
 
-                <li>
-                    <img class="rune-icon" src="${slot1Img}">
+                <li class="rune-list-item">
+                    <div class="rune-icon keystone-icon" style="background-image: url('${keystoneImg}');"></div>
+                    <span class="keystone-name">${keystone}</span>
+                </li>
+            
+                <li class="rune-list-item">
+                    <div class="rune-icon" style="background-image: url('${slot1Img}');"></div>
                     <span>${slot1}</span>
                 </li>
-
-                <li>
-                    <img class="rune-icon" src="${slot2Img}">
+            
+                <li class="rune-list-item">
+                    <div class="rune-icon" style="background-image: url('${slot2Img}');"></div>
                     <span>${slot2}</span>
                 </li>
-
-                <li>
-                    <img class="rune-icon" src="${slot3Img}">
+            
+                <li class="rune-list-item">
+                    <div class="rune-icon" style="background-image: url('${slot3Img}');"></div>
                     <span>${slot3}</span>
                 </li>
+
             </ol>
 
-            <div class="champion-data-block--header">
-                <img class="rune-icon" src="${secondaryPathImg}"/>
-                <h3 data-path="${secondaryPath}">${secondaryPath}</h3>
+            <div class="rune-data-header">
+                <img src="${secondaryPathImg}"/>
+                <h2 data-path="${secondaryPath}">${secondaryPath}</h2>
             </div>
 
             <ol class="rune-list">
-                <li>
-                    <img class="rune-icon" src="${secondarySlot1Img}">
+
+                <li class="rune-list-item">
+                    <div class="rune-icon" style="background-image: url('${secondarySlot1Img}');"></div>
                     <span>${secondarySlot1}</span>
                 </li>
-
-                <li>
-                    <img class="rune-icon" src="${secondarySlot2Img}">
+        
+                <li class="rune-list-item">
+                    <div class="rune-icon" style="background-image: url('${secondarySlot2Img}');"></div>
                     <span>${secondarySlot2}</span>
                 </li>
+
             </ol>
 
         </div>
