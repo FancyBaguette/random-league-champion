@@ -6,7 +6,7 @@ const championDataElement = document.querySelector('.champion-data');
 async function render() {
 
     const randomChampion = await getRandomChampion();
-    const randomRunes = getRandomRunes();
+    const randomRunes = await getRandomRunes();
 
     const { name, title, splashArtURL, avatarURL } = randomChampion;
     const { 
