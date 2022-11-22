@@ -26,7 +26,6 @@ async function getRandomRunes() {
     const rolledKeystone = rolledPath.slots[0].runes[getRandomIndex(rolledPath.slots[0].runes)];
 
     const rolledSlotOne = rolledPath.slots[1].runes[getRandomIndex(rolledPath.slots[1].runes)];
-    console.log(rolledSlotOne)
     const rolledSlotTwo = rolledPath.slots[2].runes[getRandomIndex(rolledPath.slots[2].runes)];
     const rolledSlotThree = rolledPath.slots[3].runes[getRandomIndex(rolledPath.slots[3].runes)];
 
