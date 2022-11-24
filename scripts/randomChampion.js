@@ -8,38 +8,31 @@ fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.js
     .then((response) => response.json())
         .then((data) => getAllChampNames(data.data));
 
-        /* 
-            First 'data' is the object returned by Riot.
-            Inside of it there's an another object called 'data' (second data)
-            Actual champion objects are nested inside of the second data obj
-        */
-
 const getAllChampNames = (object) => {
 
     for (const item in object) {
         allChampNamesArray.push(item);
     }
 
-
     /* 
         This function pushes every champ's name into 'allChampNamesArray'
-        I'm confused how this works but it works.
         The name is later used in 'getRandomChampion' function to fetch a specific .json file
     */ 
 }
 
 // Get a random champion
 
-async function getChampionJSON(championName) {
+// async function getChampionJSON(championName)
+
+const getChampionJSON = async championName => {
     return fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion/${championName}.json`)
     .then((response) => response.json())
         .then((data) => data.data[championName]);
 }
 
-async function getRandomChampion() {
+const getRandomChampion = async () => {
 
-    const randomIndex = Math.floor(Math.random()*allChampNamesArray.length);
-    const championName = allChampNamesArray[randomIndex];
+    const championName = allChampNamesArray[Math.floor(Math.random()*allChampNamesArray.length)];
 
     const rolledChampion = await getChampionJSON(championName);
 

@@ -1,12 +1,12 @@
 const version = '12.22.1'
 
-async function getRunesJSON() {
+const getRunesJSON = async () => {
     return fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/runesReforged.json`)
     .then((response) => response.json())
         .then((data) => data)
 }
 
-async function getRandomRunes() {
+const getRandomRunes = async () => {
 
     const getRandomIndex = (arr) => {
         return Math.floor(Math.random()*arr.length);
