@@ -3,7 +3,7 @@ const version = '12.22.1'
 async function getRunesJSON() {
     return fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/runesReforged.json`)
     .then((response) => response.json())
-        .then((data) => {return data})
+        .then((data) => data)
 }
 
 async function getRandomRunes() {

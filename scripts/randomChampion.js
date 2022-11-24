@@ -33,7 +33,7 @@ const getAllChampNames = (object) => {
 async function getChampionJSON(championName) {
     return fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion/${championName}.json`)
     .then((response) => response.json())
-        .then((data) => {return data.data[championName]});
+        .then((data) => data.data[championName]);
 }
 
 async function getRandomChampion() {
