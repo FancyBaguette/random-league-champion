@@ -34,7 +34,9 @@ ul,ol {
 
 .webpage {
     min-height: 100vh;
-    background-image: linear-gradient(to right, black 10vw, transparent);
+    background-image: linear-gradient(to right, #000 10vw, transparent);
+    overflow: hidden;
+    position: relative;
 }
 
 /* ===============
@@ -83,8 +85,9 @@ h2,h3 {
     position: absolute;
     bottom: 0;
     font-size: .65rem;
+    max-width: 50vw;
     font-style: italic;
-    color: rgba(227, 227, 227, 0.3);
+    color: hsla(0, 0%, 89%, 0.3);
 }
 
 /* ===============
@@ -95,6 +98,7 @@ LAYOUT
     width: fit-content;
     position: absolute;
     margin-inline: auto;
+    text-align: center;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -126,12 +130,6 @@ main {
 .rune-data {
     font-family: 'Source Sans Pro', sans-serif;
 }
-
-/* .rune-data-header {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-} */
 
 .rune-list {
     margin-block: 1.5rem;
@@ -243,4 +241,16 @@ main {
 }
 .roll-btn:hover {
     background-color: transparent;
+}
+
+/* ===============
+MEDIA QUERIES
+================== */
+
+@media (max-width: 600px) {
+
+    .fine-print {
+        font-size: .5rem;
+    }
+
 }
